@@ -3,6 +3,7 @@
 import { useState } from "react";
 import ImageCropper from "@/components/ImageCropper";
 import { Trash2Icon } from "lucide-react";
+import Image from "next/image";
 
 export default function Home() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
@@ -34,9 +35,11 @@ export default function Home() {
                 onClick={() => setSelectedImage(null)}
               />
 
-              <img
+              <Image
                 src={selectedImage}
                 alt="Selected"
+                width={320}
+                height={320}
                 className="max-w-80 max-h-80"
               />
             </div>
@@ -55,7 +58,13 @@ export default function Home() {
       {croppedImage && (
         <div className="max-w-80 max-h-80">
           <h2>Cropped Image:</h2>
-          <img src={croppedImage} alt="Cropped" />
+          <Image
+            src={croppedImage}
+            alt="Cropped"
+            width={320}
+            height={320}
+            className="max-w-80 max-h-80"
+          />
         </div>
       )}
     </div>
