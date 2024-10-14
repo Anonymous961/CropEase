@@ -2,6 +2,8 @@
 
 CropEase is a web application built with Next.js 14 that allows users to crop images seamlessly. It uses the `react-easy-crop` package for cropping functionality and integrates Tailwind CSS and ShadCN UI components to provide a responsive and modern design.
 
+[cropEase_demo.webm](https://github.com/user-attachments/assets/2575640d-cc55-4fdb-adc9-7eee632a8130)
+
 ## Features
 
 - **Image Cropping**: Effortlessly crop images using an intuitive interface powered by `react-easy-crop`.
