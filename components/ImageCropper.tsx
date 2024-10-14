@@ -74,7 +74,11 @@ const ImageCropper: React.FC<ImageCropperProps> = ({
           <Button variant="default">Crop Image</Button>
         </div>
       </DialogTrigger>
-      <DialogContent className="w-10/12">
+      <DialogContent
+        className={
+          "w-full h-auto max-h-[90vh] sm:max-w-full md:max-w-screen-md lg:max-w-screen-lg overflow-y-auto"
+        }
+      >
         <DialogHeader>
           <DialogTitle>Crop Image</DialogTitle>
           <DialogDescription>
@@ -82,7 +86,7 @@ const ImageCropper: React.FC<ImageCropperProps> = ({
             done.
           </DialogDescription>
         </DialogHeader>
-        <div className="flex relative w-full h-72">
+        <div className="flex relative  h-72">
           <Cropper
             image={imageSrc}
             crop={crop}
