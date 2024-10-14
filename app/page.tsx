@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className=" h-full w-full">
+    <div className=" h-full w-full  ">
       <div className=" grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2">
         <div className=" flex flex-col justify-center items-center p-20">
           <h1 className="text-xm text-gray-100">
@@ -17,8 +17,8 @@ export default function Home() {
           <p className="font-bold text-xm">
             Perfectly Crop Your Images – Fast and User-Friendly.
           </p>
-          <div className=" w-full">
-            <CustomButtom label="Get Started" path={"/"} />
+          <div className="w-full">
+            <CustomButtom label="Get Started" path={"/cropimage"} />
           </div>
         </div>
         <div className=" flex items-center justify-center  p-4">

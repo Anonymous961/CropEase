@@ -70,7 +70,9 @@ const ImageCropper: React.FC<ImageCropperProps> = ({
   return (
     <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
       <DialogTrigger asChild>
-        <Button variant="secondary">Crop Image</Button>
+        <div>
+          <Button variant="default">Crop Image</Button>
+        </div>
       </DialogTrigger>
       <DialogContent className="w-10/12">
         <DialogHeader>
