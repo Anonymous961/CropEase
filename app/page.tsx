@@ -1,72 +1,32 @@
-"use client";
-
-import { useState } from "react";
-import ImageCropper from "@/components/ImageCropper";
-import { Trash2Icon } from "lucide-react";
+import CustomButtom from "@/components/CustomButtom";
+import cropimage from "@/public/images/image.png";
 import Image from "next/image";
 
 export default function Home() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [croppedImage, setCroppedImage] = useState<string | null>(null);
-  const [isDialogOpen, setDialogOpen] = useState<boolean>(false);
-
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setSelectedImage(imageUrl);
-    }
-  };
-
-  const handleCropComplete = (croppedImageUrl: string) => {
-    setCroppedImage(croppedImageUrl);
-  };
-
   return (
-    <div className="h-screen w-full flex flex-col items-center">
-      {selectedImage ? (
-        <>
-          <div className="flex flex-col justify-center items-center">
-            <h1 className="text-3xl">Selected Image</h1>
-            <div className="relative inline-block">
-              <Trash2Icon
-                className="absolute  top-2 right-2  bg-transparent font-extrabold hover:bg-slate-200 hover:text-red-500 duration-100 ease-out rounded-sm"
-                size={30}
-                onClick={() => setSelectedImage(null)}
-              />
-
-              <Image
-                src={selectedImage}
-                alt="Selected"
-                width={320}
-                height={320}
-                className="max-w-80 max-h-80"
-              />
-            </div>
+    <div className=" h-full w-full">
+      <div className=" grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2">
+        <div className=" flex flex-col justify-center items-center p-20">
+          <h1 className="text-xm text-gray-100">
+            An intuitive and user-friendly image cropping tool that allows you
+            to effortlessly adjust, rotate, and crop your photos to perfection.
+            Whether for social media, design projects, or personal use, get the
+            perfect cut every time in just a few clicks.
+          </h1>
+          <br />
+          <p className="font-bold text-xm">
+            Perfectly Crop Your Images – Fast and User-Friendly.
+          </p>
+          <div className=" w-full">
+            <CustomButtom label="Get Started" path={"/"} />
           </div>
-          <ImageCropper
-            imageSrc={selectedImage}
-            onCropComplete={handleCropComplete}
-            dialogOpen={isDialogOpen}
-            setDialogOpen={setDialogOpen}
-          />
-        </>
-      ) : (
-        <input type="file" onChange={handleImageChange} />
-      )}
-
-      {croppedImage && (
-        <div className="max-w-80 max-h-80">
-          <h2>Cropped Image:</h2>
-          <Image
-            src={croppedImage}
-            alt="Cropped"
-            width={320}
-            height={320}
-            className="max-w-80 max-h-80"
-          />
         </div>
-      )}
+        <div className=" flex items-center justify-center  p-4">
+          <div className="bg-blue-900 p-4 rounded-3xl">
+            <Image src={cropimage} alt="" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
