@@ -37,13 +37,11 @@ export const getCroppedImg = async (
 
     const radianAngle = getRadianAngle(rotation);
 
-    const { width, height } = crop;
-
     // Calculate rotated image dimensions
     const rotatedWidth =
-      Math.abs(Math.cos(radianAngle) * width) + Math.abs(Math.sin(radianAngle) * height);
+      Math.abs(Math.cos(radianAngle) * crop.width) + Math.abs(Math.sin(radianAngle) * crop.height);
     const rotatedHeight =
-      Math.abs(Math.sin(radianAngle) * width) + Math.abs(Math.cos(radianAngle) * height);
+      Math.abs(Math.sin(radianAngle) * crop.width) + Math.abs(Math.cos(radianAngle) * crop.height);
 
     // Set canvas size to the new rotated dimensions
     canvas.width = rotatedWidth;
@@ -53,18 +51,19 @@ export const getCroppedImg = async (
     ctx.translate(rotatedWidth / 2, rotatedHeight / 2);
     ctx.rotate(radianAngle);
 
-    // Move the image back to the top-left corner after rotation
-    ctx.translate(-crop.width / 2, -crop.height / 2);
+    // Calculate the cropping position on the original image
+    const cropX = crop.x;
+    const cropY = crop.y;
 
-    // Draw the rotated and cropped image
+    // Adjust the image drawing position back to the center of the canvas
     ctx.drawImage(
       image,
-      crop.x,
-      crop.y,
+      cropX,
+      cropY,
       crop.width,
       crop.height,
-      0,
-      0,
+      -crop.width / 2,
+      -crop.height / 2,
       crop.width,
       crop.height
     );

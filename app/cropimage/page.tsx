@@ -41,7 +41,7 @@ export default function Cropimage() {
   };
 
   return (
-    <div className="h-full w-full flex flex-col items-center p-4">
+    <div className="h-full w-full flex flex-col items-center p-8">
       <div className="bg-white w-3/4 rounded-xl grid grid-cols-1 lg:grid-cols-2 md:grid-cols-2 min-h-96">
         <div>
           {selectedImage ? (
